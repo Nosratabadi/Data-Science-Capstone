@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telco Customer Churn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Telco Customer Churn Analysis</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Customer churn, the rate at which customers discontinue their service with a company, is a significant concern for telecommunications companies. Acquiring new customers is typically more expensive than retaining existing ones. Therefore, understanding and predicting customer churn is critical for developing effective retention strategies.</p>
+        <p><strong>Goal:</strong> The aim of this project is to build a predictive model that can identify customers who are likely to churn. By identifying these customers, the telecommunications company can proactively offer them incentives (e.g., discounts, improved services) to encourage them to stay. This will enable the company to reduce churn, increase customer lifetime value, and improve profitability.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>This dataset contains information about customers of a telecommunications company. It includes customer demographics, services used, account information, and whether they churned.</p>
+        <ul>
+            <li><strong>Rows:</strong> ~7,043</li>
+            <li><strong>Columns:</strong> 21</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>customerID</code>: Unique identifier for each customer.</li>
+                    <li><code>gender</code>: Whether the customer is a male or a female.</li>
+                    <li><code>SeniorCitizen</code>: Whether the customer is a senior citizen (1, 0).</li>
+                    <li><code>Partner</code>: Whether the customer has a partner (Yes, No).</li>
+                    <li><code>Dependents</code>: Whether the customer has dependents (Yes, No).</li>
+                    <li><code>tenure</code>: Number of months the customer has stayed with the company.</li>
+                    <li><code>PhoneService</code>: Whether the customer has a phone service (Yes, No).</li>
+                    <li><code>MultipleLines</code>: Whether the customer has multiple lines (Yes, No, No phone service).</li>
+                    <li><code>InternetService</code>: Customer’s internet service provider (DSL, Fiber optic, No).</li>
+                    <li><code>OnlineSecurity</code>: Whether the customer has online security (Yes, No, No internet service).</li>
+                    <li><code>OnlineBackup</code>: Whether the customer has online backup (Yes, No, No internet service).</li>
+                    <li><code>DeviceProtection</code>: Whether the customer has device protection (Yes, No, No internet service).</li>
+                    <li><code>TechSupport</code>: Whether the customer has tech support (Yes, No, No internet service).</li>
+                    <li><code>StreamingTV</code>: Whether the customer has streaming TV (Yes, No, No internet service).</li>
+                    <li><code>StreamingMovies</code>: Whether the customer has streaming movies (Yes, No, No internet service).</li>
+                    <li><code>Contract</code>: The contract term of the customer (Month-to-month, One year, Two year).</li>
+                    <li><code>PaperlessBilling</code>: Whether the customer has paperless billing (Yes, No).</li>
+                    <li><code>PaymentMethod</code>: The customer’s payment method (Electronic check, Mailed check, Bank transfer (automatic), Credit card (automatic)).</li>
+                    <li><code>MonthlyCharges</code>: The amount charged to the customer monthly.</li>
+                    <li><code>TotalCharges</code>: The total amount charged to the customer.</li>
+                    <li><code>Churn</code>: Whether the customer churned (Yes or No). This is the target variable.</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/blastchar/telco-customer-churn">Kaggle - Telco Customer Churn</a></p>
+        <a href="data/telco_customer_churn.csv" class="download-link">Download Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a machine learning model to predict customer churn. Here's a suggested workflow:</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas in Python.</li>
+                    <li>Explore the data to understand its structure and identify missing values or inconsistencies.</li>
+                    <li>Handle missing values appropriately (e.g., imputation or removal).</li>
+                    <li>Convert categorical variables into numerical format using one-hot encoding or label encoding (using Pandas <code>get_dummies</code> or scikit-learn's <code>LabelEncoder</code>).  Pay attention to <code>TotalCharges</code> which is showing up as an object/string, and needs to be numeric.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Optional but Recommended):</strong>
+                <ul>
+                    <li>Create new features that may be predictive of churn (e.g., tenure squared, ratio of monthly charges to total charges).</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and testing sets using scikit-learn's <code>train_test_split</code>.</li>
+                    <li>Choose a suitable classification algorithm (e.g., Logistic Regression, Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data using scikit-learn.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the testing data.</li>
+                    <li>Use appropriate evaluation metrics such as accuracy, precision, recall, F1-score, and AUC-ROC.  Pay particular attention to precision and recall in this case.</li>
+                    <li>Visualize the model's performance using a confusion matrix.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Importance:</strong>
+                <ul>
+                    <li>Identify the most important features in the model.  This will help the telecommunications company understand which factors are driving churn.  Use methods like <code>feature_importances_</code> attribute of tree-based models or coefficients of Logistic Regression (with proper scaling).</li>
+                </ul>
+            </li>
+            <li><strong>Interpretation and Recommendations:</strong>
+                <ul>
+                    <li>Interpret the model's results in the context of the business problem.</li>
+                    <li>Provide recommendations to the telecommunications company on how to reduce churn.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> You'll need to use libraries such as Pandas, NumPy, scikit-learn, and Matplotlib/Seaborn for data manipulation, model building, and visualization.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
