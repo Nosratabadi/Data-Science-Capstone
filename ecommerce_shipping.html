@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Shipping Optimization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>E-Commerce Shipping Optimization</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>In the fast-paced world of e-commerce, efficient shipping and timely delivery are crucial for customer satisfaction and maintaining a competitive edge. Delayed deliveries and high shipping costs can lead to customer dissatisfaction and lost sales. Optimizing the shipping process to reduce costs and improve delivery times is a key business objective.</p>
+        <p><strong>Goal:</strong> The objective of this project is to analyze e-commerce shipping data and build a model that can predict delivery times and identify factors that contribute to shipping delays. By understanding these factors, the e-commerce company can optimize its logistics operations, reduce shipping costs, and improve customer satisfaction.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>This dataset contains information about e-commerce shipments, including order details, customer information, product details, shipping dates, shipping carriers, shipping costs, and actual delivery times.</p>
+        <ul>
+            <li><strong>Rows:</strong> Varies (typically a few thousand to tens of thousands)</li>
+            <li><strong>Columns:</strong> Varies (typically 10-20)</li>
+            <li><strong>Variables:</strong> (This will vary based on the specific dataset – adjust as needed. This example uses common variables.)
+                <ul>
+                    <li><code>Order ID</code>: Unique identifier for each order.</li>
+                    <li><code>Customer ID</code>: Unique identifier for each customer.</li>
+                    <li><code>Product ID</code>: Unique identifier for each product.</li>
+                    <li><code>Order Date</code>: Date when the order was placed.</li>
+                    <li><code>Shipping Date</code>: Date when the order was shipped.</li>
+                    <li><code>Delivery Date</code>: Date when the order was delivered.</li>
+                    <li><code>Shipping Carrier</code>: The carrier used for shipping (e.g., FedEx, UPS, DHL).</li>
+                    <li><code>Shipping Cost</code>: The cost of shipping the order.</li>
+                    <li><code>Product Category</code>: The category of the product (e.g., Electronics, Clothing).</li>
+                    <li><code>Product Subcategory</code>: The subcategory of the product (e.g., Smartphones, T-shirts).</li>
+                    <li><code>Order Quantity</code>: The quantity of products ordered.</li>
+                    <li><code>Order Value</code>: The total value of the order.</li>
+                    <li><code>Customer City</code>: City of the customer.</li>
+                    <li><code>Customer State</code>: State of the customer.</li>
+                    <li><code>Customer Zipcode</code>: Zipcode of the customer.</li>
+                    <li><code>Estimated Delivery Time</code>: The estimated delivery time in days.</li>
+                    <li><code>Actual Delivery Time</code>: The actual delivery time in days. (Target Variable)</li>
+                    <li><code>Late Delivery Risk</code>:  A binary variable (0/1) indicating if the delivery was late.</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/prachi13/customer-analytics">Kaggle - Customer Analytics</a></p>
+        <a href="data/ecommerce_shipping.csv" class="download-link">Download Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to analyze the shipping data and build a model to predict delivery times or the risk of late delivery. Here's a suggested workflow:</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Inspect the data for missing values and outliers.</li>
+                    <li>Handle missing values appropriately (e.g., imputation).</li>
+                    <li>Convert date columns to datetime objects using Pandas <code>to_datetime</code>.</li>
+                    <li>Calculate the actual delivery time in days using <code>Delivery Date</code> and <code>Shipping Date</code>.</li>
+                    <li>Encode categorical variables using one-hot encoding or label encoding.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Important):</strong>
+                <ul>
+                    <li>Calculate the difference between <code>Estimated Delivery Time</code> and <code>Actual Delivery Time</code> to determine the delay.</li>
+                    <li>Create features representing seasonality (e.g., month of the year, day of the week).</li>
+                    <li>Create interaction features (e.g., shipping cost per product, order value * order quantity).</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and testing sets.</li>
+                    <li>Choose a suitable regression algorithm for predicting delivery time (e.g., Linear Regression, Random Forest, Gradient Boosting) or a classification algorithm for predicting late delivery risk (e.g., Logistic Regression, Random Forest).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the testing data.</li>
+                    <li>Use appropriate evaluation metrics such as RMSE, MAE, and R-squared for regression models, or accuracy, precision, recall, and F1-score for classification models.</li>
+                    <li>Visualize the results using scatter plots or confusion matrices.</li>
+                </ul>
+            </li>
+            <li><strong>Insights and Recommendations:</strong>
+                <ul>
+                    <li>Identify the most important factors affecting delivery time or late delivery risk.</li>
+                    <li>Provide recommendations for improving shipping efficiency, such as optimizing shipping routes, negotiating better rates with carriers, or improving inventory management.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
