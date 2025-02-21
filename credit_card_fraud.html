@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Credit Card Fraud Detection</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Credit card fraud is a significant problem for financial institutions, resulting in substantial financial losses and reputational damage. Detecting fraudulent transactions in real-time is crucial for preventing these losses and protecting customers. Due to the very small percentage of fraudulent transactions compared to normal transactions, this presents a unique data science challenge.</p>
+        <p><strong>Goal:</strong> The aim of this project is to build a machine learning model that can accurately detect fraudulent credit card transactions. The model should be able to identify fraudulent transactions with high precision and recall. Because of the highly imbalanced nature of the data (many more normal transactions than fraudulent ones), special attention must be paid to model evaluation and handling class imbalance.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>This dataset contains information about credit card transactions.  Due to confidentiality, the original features are mostly anonymized and transformed.</p>
+        <ul>
+            <li><strong>Rows:</strong> ~284,807</li>
+            <li><strong>Columns:</strong> 31</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>Time</code>: Number of seconds elapsed between this transaction and the first transaction in the dataset.</li>
+                    <li><code>V1-V28</code>: Anonymized features obtained through PCA transformation.</li>
+                    <li><code>Amount</code>: Transaction amount.</li>
+                    <li><code>Class</code>: Target variable (1 for fraudulent, 0 for non-fraudulent).</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/mlg-ulb/creditcardfraud">Kaggle - Credit Card Fraud Detection</a></p>
+        <a href="data/credit_card_fraud.csv" class="download-link">Download Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a model to detect fraudulent credit card transactions.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Understand the distribution of the 'Class' variable (fraud vs. non-fraud). Note the significant imbalance.</li>
+                    <li>Scale the 'Amount' feature using StandardScaler or RobustScaler (as it's not PCA-transformed).</li>
+                </ul>
+            </li>
+            <li><strong>Handling Class Imbalance:</strong>
+                <ul>
+                    <li>Address the class imbalance using techniques such as:
+                        <ul>
+                            <li><strong>Undersampling:</strong> Randomly remove majority class instances.</li>
+                            <li><strong>Oversampling:</strong> Duplicate minority class instances (e.g., using SMOTE - Synthetic Minority Oversampling Technique).  Scikit-learn's <code>imblearn</code> library provides SMOTE.</li>
+                            <li><strong>Cost-sensitive learning:</strong> Assign higher misclassification costs to the minority class.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and testing sets.</li>
+                    <li>Choose a suitable classification algorithm. Algorithms often used for imbalanced datasets include:
+                        <ul>
+                            <li>Logistic Regression (with class weights)</li>
+                            <li>Random Forest</li>
+                            <li>Gradient Boosting (e.g., XGBoost, LightGBM)</li>
+                            <li>Support Vector Machines (SVM)</li>
+                        </ul>
+                    </li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the testing data.</li>
+                    <li>Use metrics that are appropriate for imbalanced datasets, such as:
+                        <ul>
+                            <li>Precision</li>
+                            <li>Recall</li>
+                            <li>F1-score</li>
+                            <li>AUC-ROC (Area Under the Receiver Operating Characteristic curve)</li>
+                            <li>AUPRC (Area Under the Precision-Recall Curve) – often more informative than AUC-ROC for highly imbalanced data.</li>
+                        </ul>
+                    </li>
+                    <li>Visualize the model's performance using a confusion matrix.</li>
+                </ul>
+            </li>
+            <li><strong>Threshold Tuning:</strong>
+                <ul>
+                    <li>Adjust the classification threshold to optimize the trade-off between precision and recall.</li>
+                </ul>
+            </li>
+            <li><strong>Interpretation:</strong>
+                <ul>
+                    <li>Understand which features are most important for detecting fraud.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, imblearn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
