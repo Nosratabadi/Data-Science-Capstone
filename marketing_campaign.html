@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Campaign Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Marketing Campaign Performance Analysis</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Marketing campaigns are a significant investment for many businesses. Measuring the effectiveness of these campaigns and optimizing them for maximum ROI is critical.  This involves understanding which customers are most likely to respond to a campaign, what types of messages resonate best, and which channels are the most effective.</p>
+        <p><strong>Goal:</strong> The aim of this project is to analyze data from a marketing campaign and build a model to predict which customers are most likely to respond (e.g., make a purchase, click a link, sign up for a newsletter).  This allows the company to target its marketing efforts more efficiently, reducing costs and increasing revenue.  We will focus on binary outcome, purchase or no purchase.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>This dataset contains information about customers and their responses to a marketing campaign.</p>
+        <ul>
+            <li><strong>Rows:</strong> ~4,000 - 40,000 (depending on the dataset)</li>
+            <li><strong>Columns:</strong> 15-20 (depending on the dataset)</li>
+            <li><strong>Variables:</strong> (This will vary based on the specific dataset – adjust as needed. This example uses variables from the Bank Marketing Dataset.)
+                <ul>
+                    <li><code>age</code>: Customer's age (numeric).</li>
+                    <li><code>job</code>: Type of job (categorical: "admin.","unknown","unemployed","management","housemaid","entrepreneur","student","blue-collar","self-employed","retired","technician","services").</li>
+                    <li><code>marital</code>: Marital status (categorical: "married","divorced","single"; note: "divorced" means divorced or widowed).</li>
+                    <li><code>education</code>: Education level (categorical: "unknown","secondary","primary","tertiary").</li>
+                    <li><code>default</code>: Has credit in default? (binary: "yes","no").</li>
+                    <li><code>balance</code>: Average yearly balance, in euros (numeric).</li>
+                    <li><code>housing</code>: Has housing loan? (binary: "yes","no").</li>
+                    <li><code>loan</code>: Has personal loan? (binary: "yes","no").</li>
+                    <li><code>contact</code>: Contact communication type (categorical: "unknown","telephone","cellular").</li>
+                    <li><code>day</code>: Last contact day of the month (numeric).</li>
+                    <li><code>month</code>: Last contact month of year (categorical: "jan", "feb", "mar", ..., "nov", "dec").</li>
+                    <li><code>duration</code>: Last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y='no'). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.</li>
+                    <li><code>campaign</code>: Number of contacts performed during this campaign and for this client (numeric, includes last contact).</li>
+                    <li><code>pdays</code>: Number of days that passed by after the client was last contacted from a previous campaign (numeric; 999 means client was not previously contacted).</li>
+                    <li><code>previous</code>: Number of contacts performed before this campaign and for this client (numeric).</li>
+                    <li><code>poutcome</code>: Outcome of the previous marketing campaign (categorical: "unknown","other","failure","success").</li>
+                    <li><code>y</code>: Has the client subscribed a term deposit? (binary: "yes","no"). <strong>This is your target variable.</strong></li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://archive.ics.uci.edu/ml/datasets/Bank+Marketing">UCI Machine Learning Repository - Bank Marketing Dataset</a></p>
+        <a href="data/marketing_campaign.csv" class="download-link">Download Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a machine learning model to predict whether a customer will respond to the marketing campaign.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Examine the data for missing values and handle them appropriately.</li>
+                    <li>Convert categorical features to numerical format using one-hot encoding or label encoding.</li>
+                    <li>Consider scaling numerical features (e.g., using StandardScaler).</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Optional):</strong>
+                <ul>
+                    <li>Create features that combine existing features (e.g., create interaction terms).</li>
+                    <li>Create new features based on domain knowledge (e.g., calculate the age of the customer at the time of the campaign).</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and testing sets.</li>
+                    <li>Choose a suitable classification algorithm (e.g., Logistic Regression, Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the testing data.</li>
+                    <li>Use metrics such as accuracy, precision, recall, F1-score, and AUC-ROC.</li>
+                    <li>Visualize the model's performance using a confusion matrix and ROC curve.</li>
+                </ul>
+            </li>
+            <li><strong>Campaign Optimization Recommendations:</strong>
+                <ul>
+                    <li>Identify the customer segments that are most likely to respond to the campaign.</li>
+                    <li>Determine which marketing channels and messages are most effective for different segments.</li>
+                    <li>Provide recommendations on how to optimize the campaign for maximum ROI.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
