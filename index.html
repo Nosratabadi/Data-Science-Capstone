@@ -28,14 +28,22 @@
         }
 
         .project-card {
-            width: 30%;
+            width: 48%; /* Increased width to fill the row */
             float: left;
-            margin: 1%;
+            margin: 1%; /* Adjusted margin for spacing */
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             overflow: hidden; /* Ensure image doesn't overflow */
+        }
+
+        @media (max-width: 768px) { /* Responsive adjustment for smaller screens */
+            .project-card {
+                width: 100%; /* Each card takes full width on smaller screens */
+                float: none; /* Remove float */
+                margin: 2% 0; /* Adjust vertical margin for spacing */
+            }
         }
 
         .project-card:hover {
@@ -135,14 +143,6 @@
             </div>
         </div>
 
-        <div class="project-card">
-            <img src="images/retail_sales.jpg" alt="Retail Sales" class="project-image">
-            <div class="project-details">
-                <h2 class="project-title">Retail Sales Forecasting</h2>
-                <p class="project-description">Predict future sales to optimize inventory management and staffing.</p>
-                <a href="retail_sales.html" class="project-link">View Project</a>
-            </div>
-        </div>
     </div>
     <footer>
     <p>© 2024 Data Science Projects</p>
