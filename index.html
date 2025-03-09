@@ -28,22 +28,14 @@
         }
 
         .project-card {
-            width: 48%; /* Increased width to fill the row */
+            width: 48%; /* Adjusted width for 2 projects per row */
             float: left;
-            margin: 1%; /* Adjusted margin for spacing */
+            margin: 1%;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             overflow: hidden; /* Ensure image doesn't overflow */
-        }
-
-        @media (max-width: 768px) { /* Responsive adjustment for smaller screens */
-            .project-card {
-                width: 100%; /* Each card takes full width on smaller screens */
-                float: none; /* Remove float */
-                margin: 2% 0; /* Adjust vertical margin for spacing */
-            }
         }
 
         .project-card:hover {
@@ -142,7 +134,6 @@
                 <a href="credit_card_fraud.html" class="project-link">View Project</a>
             </div>
         </div>
-
     </div>
     <footer>
     <p>© 2024 Data Science Projects</p>
