@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics Customer Revenue Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Google Analytics Customer Revenue Prediction</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Predicting customer revenue is essential for businesses to optimize marketing strategies and allocate resources effectively. By analyzing customer interactions and behavior, companies can identify high-value customers and tailor their marketing efforts to maximize revenue.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a model that can accurately predict revenue per customer.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset contains customer interactions and transactions from the Google Merchandise Store. It includes information about visits, devices, geography, traffic sources, and more.</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 903654</li>
+            <li><strong>Rows (Test):</strong> 804685</li>
+            <li><strong>Columns:</strong> 12</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>fullVisitorId</code>: Unique identifier for each user</li>
+                    <li><code>channelGrouping</code>: Channel via which the user came to the Store</li>
+                    <li><code>date</code>: The date on which the user visited the Store</li>
+                    <li><code>device</code>: Specifications for the device used to access the Store</li>
+                    <li><code>geoNetwork</code>: Information about the geography of the user</li>
+                    <li><code>socialEngagementType</code>: Engagement type</li>
+                    <li><code>totals</code>: Aggregate values across the session</li>
+                    <li><code>trafficSource</code>: Information about the Traffic Source from which the session originated</li>
+                    <li><code>visitId</code>: Identifier for this session</li>
+                    <li><code>visitNumber</code>: The session number for this user</li>
+                    <li><code>visitStartTime</code>: The timestamp</li>
+                    <li><code>hits</code>: Row and nested fields for all types of hits</li>
+                    <li><code>customDimensions</code>: User-level or session-level custom dimensions</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/ga-customer-revenue-prediction/data">Kaggle GA Customer Revenue Prediction</a></p>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/Ebse58kd-nhBs-hfnl2K1FABVS3MivwQ1WgtDgUeSnu0Qw?e=vaJBWG&download=1" class="download-link">Download Test Data</a>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/Ec3bZLeLEzpLoIAZOe5YvbEBfF7oJop1GpkJSn-3o8i6sg?e=fjK0fU&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to predict the natural log of the sum of all transactions per user.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Convert JSON blobs and other complex data types to usable formats.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Crucial):</strong>
+                <ul>
+                    <li>Extract meaningful features from JSON columns.</li>
+                    <li>Create aggregate features.</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets.</li>
+                    <li>Choose a suitable regression algorithm (e.g., XGBoost, LightGBM).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use metrics such as RMSE.</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn, json, XGBoost/LightGBM.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
