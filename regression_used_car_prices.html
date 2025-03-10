@@ -47,4 +47,104 @@
         }
 
         .download-link:hover {
-            background-color: #218838
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Regression of Used Car Prices</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Accurate used car price prediction is valuable for both buyers and sellers. Buyers can use these predictions to assess fair prices and make informed purchasing decisions, while sellers can use them to set competitive prices and maximize their returns. A reliable model can benefit various stakeholders in the used car market.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a regression model that can accurately predict the prices of used cars.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset for this competition (both train and test) was generated from a deep learning model trained on the Used Car Price Prediction Dataset.</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 188534</li>
+            <li><strong>Rows (Test):</strong> 125691</li>
+            <li><strong>Columns (Train):</strong> 13</li>
+            <li><strong>Columns (Test):</strong> 12</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>id</code>: Unique identifier</li>
+                    <li><code>brand</code>: Brand of the car</li>
+                    <li><code>model</code>: Model of the car</li>
+                    <li><code>model_year</code>: Model year</li>
+                    <li><code>mileage</code>: Mileage</li>
+                    <li><code>fuel_type</code>: Fuel type</li>
+                    <li><code>engine</code>: Engine</li>
+                    <li><code>transmission</code>: Transmission type</li>
+                    <li><code>ext_col</code>: Exterior color</li>
+                    <li><code>int_col</code>: Interior color</li>
+                    <li><code>accident</code>: Accident history</li>
+                    <li><code>clean_title</code>: Clean title status</li>
+                    <li><code>price</code>: Price (target variable)</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/playground-series-s4e9/data">Kaggle Playground Series S4E9</a></p>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EfeSQkKhjPdHvIDpH0H01MMBXm6_FD4EgYJklilfFW0U6w?e=kbMF4H&download=1" class="download-link">Download Test Data</a>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EdThQJWGeYtIrkB1im14D00BTLYtNIRQIEwYaUGtog45bQ?e=ehvQ75&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a regression model to predict used car prices.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Convert categorical variables to numerical format using techniques like one-hot encoding.</li>
+                    <li>Scale numerical features to ensure fair treatment in the model.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Optional):</strong>
+                <ul>
+                    <li>Create new features that may improve model performance.</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets.</li>
+                    <li>Choose a suitable regression algorithm (e.g., Linear Regression, Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use metrics such as RMSE, MAE, and R-squared.</li>
+                    <li>Visualize the results using scatter plots.</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
