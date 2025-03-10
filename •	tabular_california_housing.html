@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression with a Tabular California Housing Dataset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Regression with a Tabular California Housing Dataset</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Accurate housing price prediction is valuable for real estate companies, investors, and potential homeowners. A reliable prediction model can help in property valuation, investment decisions, and understanding market trends. By identifying the factors that influence housing prices, stakeholders can make informed decisions and optimize their strategies.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a regression model that can accurately predict housing prices in California.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset for this competition (both train and test) was generated from a deep learning model trained on the California Housing Dataset.</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 37138</li>
+            <li><strong>Rows (Test):</strong> 24760</li>
+            <li><strong>Columns (Train):</strong> 10</li>
+            <li><strong>Columns (Test):</strong> 9</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>id</code>: Unique identifier</li>
+                    <li><code>MedInc</code>: Median income in block group</li>
+                    <li><code>HouseAge</code>: Median house age in block group</li>
+                    <li><code>AveRooms</code>: Average number of rooms per household</li>
+                    <li><code>AveBedrms</code>: Average number of bedrooms per household</li>
+                    <li><code>Population</code>: Block group population</li>
+                    <li><code>AveOccup</code>: Average household occupancy</li>
+                    <li><code>Latitude</code>: Block group latitude</li>
+                    <li><code>Longitude</code>: Block group longitude</li>
+                    <li><code>MedHouseVal</code>: Median house value (target variable)</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/playground-series-s3e1/data">Kaggle Playground Series S3E1</a></p>
+                <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EU6r4B8jIcVEgLOGmN7i4j0B9aBnmSNMbLrMe37GRV6V-w?e=N0UbxP&download=1" class="download-link">Download Test Data</a>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EQ4ZYDIHIR1AlfCt6jEoiUoBiRfqgTlnGYA03s3xJJrEnw?e=tMl0LJ&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a regression model to predict the median house value.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Scale numerical features to ensure fair treatment in the model.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Optional):</strong>
+                <ul>
+                    <li>Create new features that may improve model performance.</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets.</li>
+                    <li>Choose a suitable regression algorithm (e.g., Linear Regression, Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use metrics such as RMSE, MAE, and R-squared.</li>
+                    <li>Visualize the results using scatter plots.</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
