@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression with a Tabular Media Campaign Cost Dataset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Regression with a Tabular Media Campaign Cost Dataset</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Predicting the cost of media campaigns is essential for optimizing marketing budgets and maximizing ROI. By accurately estimating the cost of various campaigns, businesses can make informed decisions about resource allocation and campaign strategies.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a regression model that can accurately predict the cost of media campaigns.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset contains information about various media campaigns, including sales, units, children, and other factors.</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 360337</li>
+            <li><strong>Rows (Test):</strong> 240225</li>
+            <li><strong>Columns (Train):</strong> 17</li>
+            <li><strong>Columns (Test):</strong> 16</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>id</code>: Unique identifier</li>
+                    <li><code>store_sales</code>: Store sales (in millions)</li>
+                    <li><code>unit_sales</code>: Unit sales (in millions)</li>
+                    <li><code>total_children</code>: Total children</li>
+                    <li><code>num_children_at_home</code>: Number of children at home</li>
+                    <li><code>avg_cars_at home</code>: Average cars at home</li>
+                    <li><code>gross_weight</code>: Gross weight</li>
+                    <li><code>recyclable_package</code>: Recyclable package</li>
+                    <li><code>low_fat</code>: Low fat</li>
+                    <li><code>units_per_case</code>: Units per case</li>
+                    <li><code>store_sqft</code>: Store square footage</li>
+                    <li><code>coffee_bar</code>: Coffee bar</li>
+                    <li><code>video_store</code>: Video store</li>
+                    <li><code>salad_bar</code>: Salad bar</li>
+                    <li><code>prepared_food</code>: Prepared food</li>
+                    <li><code>florist</code>: Florist</li>
+                    <li><code>cost</code>: Cost (target variable)</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/playground-series-s3e11/data">Kaggle Playground Series S3E11</a></p>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/Ea5EwYJrhyNLmGl75DoMZXwBKSsCM44jZ_3xpu7T5VgPEA?e=3D5Pfd&download=1" class="download-link">Download Test Data</a>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/ETXw3BbMZBZMjOqU-xx80UQBpjg4Uw_RIscZYEtna3Pkdg?e=O9xtnh&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a regression model to predict media campaign costs.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Scale numerical features to ensure fair treatment in the model.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Optional):</strong>
+                <ul>
+                    <li>Create new features that may improve model performance.</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets.</li>
+                    <li>Choose a suitable regression algorithm (e.g., Linear Regression, Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use metrics such as RMSE, MAE, and R-squared.</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
