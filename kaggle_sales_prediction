@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaggle Sales Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kaggle Sales Prediction</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Predicting sales is essential for businesses to optimize inventory management, allocate resources, and maximize revenue. Accurate sales predictions can help businesses make informed decisions and improve their overall operational efficiency.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a model that can accurately predict sales for various Kaggle-branded stickers in different fictitious stores across different countries.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset contains sales data for various Kaggle-branded stickers from different fictitious stores across different countries. The dataset is completely synthetic but contains many effects you see in real-world data, e.g., weekend and holiday effect, seasonality, etc.</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 230131</li>
+            <li><strong>Rows (Test):</strong> 98551</li>
+            <li><strong>Columns (Train):</strong> 6</li>
+            <li><strong>Columns (Test):</strong> 5</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>id</code>: Unique identifier</li>
+                    <li><code>date</code>: Date</li>
+                    <li><code>country</code>: Country</li>
+                    <li><code>store</code>: Store</li>
+                    <li><code>product</code>: Product</li>
+                    <li><code>num_sold</code>: Number sold (target variable)</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/playground-series-s5e1/data">Kaggle Playground Series S5E1</a></p>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EbooMWrjs1JMoXc3LNkcmbsBBL5wZo5Lk75F5mdyO05UgA?e=LV5neJ&download=1" class="download-link">Download Test Data</a>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/ERu-dPgXZbpGtEDzT14_z28BurxstcuiZSgHWBm4qH7qTw?e=XGGy9u&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a model to predict sales for various Kaggle-branded stickers.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Convert the date column to appropriate format.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Crucial):</strong>
+                <ul>
+                    <li>Create new features that may improve model performance (e.g., day of the week, month, year).</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets.</li>
+                    <li>Choose a suitable model (e.g., Time Series, Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use metrics such as Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE).</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
