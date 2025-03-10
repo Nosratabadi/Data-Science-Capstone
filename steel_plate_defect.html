@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Plate Defect Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Steel Plate Defect Prediction</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Predicting defects in steel plates is crucial for quality control in manufacturing. Accurate defect prediction can help reduce production costs, minimize waste, and ensure the quality of the final product. By identifying the factors that contribute to defects, manufacturers can optimize their processes and improve overall efficiency.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a classification model that can accurately predict the presence of various defects in steel plates.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset for this competition (both train and test) was generated from a deep learning model trained on the Steel Plates Faults dataset from UCI. Feature distributions are close to, but not exactly the same, as the original.</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 19220</li>
+            <li><strong>Rows (Test):</strong> 12815</li>
+            <li><strong>Columns (Train):</strong> 35</li>
+            <li><strong>Columns (Test):</strong> 28</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>id</code>: Unique identifier</li>
+                    <li><code>X_Minimum</code>: Minimum X coordinate</li>
+                    <li><code>X_Maximum</code>: Maximum X coordinate</li>
+                    <li><code>Y_Minimum</code>: Minimum Y coordinate</li>
+                    <li><code>Y_Maximum</code>: Maximum Y coordinate</li>
+                    <li><code>Pixels_Areas</code>: Area of pixels</li>
+                    <li><code>X_Perimeter</code>: X Perimeter</li>
+                    <li><code>Y_Perimeter</code>: Y Perimeter</li>
+                    <li><code>Sum_of_Luminosity</code>: Sum of luminosity</li>
+                    <li><code>Minimum_of_Luminosity</code>: Minimum of luminosity</li>
+                    <li><code>Maximum_of_Luminosity</code>: Maximum of luminosity</li>
+                    <li><code>Length_of_Conveyer</code>: Length of conveyer</li>
+                    <li><code>TypeOfSteel_A300</code>: Type of steel A300</li>
+                    <li><code>TypeOfSteel_A400</code>: Type of steel A400</li>
+                    <li><code>Steel_Plate_Thickness</code>: Steel plate thickness</li>
+                    <li><code>Edges_Index</code>: Edges index</li>
+                    <li><code>Empty_Index</code>: Empty index</li>
+                    <li><code>Square_Index</code>: Square index</li>
+                    <li><code>Outside_X_Index</code>: Outside X index</li>
+                    <li><code>Edges_X_Index</code>: Edges X index</li>
+                    <li><code>Edges_Y_Index</code>: Edges Y index</li>
+                    <li><code>Outside_Global_Index</code>: Outside global index</li>
+                    <li><code>LogOfAreas</code>: Log of areas</li>
+                    <li><code>Log_X_Index</code>: Log of X index</li>
+                    <li><code>Log_Y_Index</code>: Log of Y index</li>
+                    <li><code>Orientation_Index</code>: Orientation index</li>
+                    <li><code>Luminosity_Index</code>: Luminosity index</li>
+                    <li><code>SigmoidOfAreas</code>: Sigmoid of areas</li>
+                    <li><code>Pastry</code>: Pastry (target variable)</li>
+                    <li><code>Z_Scratch</code>: Z Scratch (target variable)</li>
+                    <li><code>K_Scatch</code>: K Scratch (target variable)</li>
+                    <li><code>Stains</code>: Stains (target variable)</li>
+                    <li><code>Dirtiness</code>: Dirtiness (target variable)</li>
+                    <li><code>Bumps</code>: Bumps (target variable)</li>
+                    <li><code>Other_Faults</code>: Other Faults (target variable)</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/playground-series-s4e3/data">Kaggle Playground Series S4E3</a></p>
+       <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EV66eeM47f5Mt-aECY2mo5wB9lSOuBMO9ssrtNPdGkx0Cw?e=KrNgOW&download=1" class="download-link">Download Test Data</a>
+       <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EQwTg2Y9lX9EjckAbteFHxYBBk40mCLB1-19zo8DEHPG5w?e=tyCuCu&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a multi-label classification model to predict the presence of each defect type.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Scale numerical features to ensure fair treatment in the model.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Optional):</strong>
+                <ul>
+                    <li>Create new features that may improve model performance.</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets.</li>
+                    <li>Choose a suitable multi-label classification algorithm (e.g., Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use metrics such as accuracy, precision, recall, F1-score, and AUC-ROC.</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
