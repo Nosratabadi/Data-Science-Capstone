@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New York City Taxi Trip Duration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>New York City Taxi Trip Duration</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Predicting the duration of taxi trips in New York City can help optimize traffic flow, improve taxi service efficiency, and provide more accurate estimates for passengers.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a model that predicts the total ride duration of taxi trips in New York City.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset contains information about taxi trips in New York City, including pickup and dropoff locations, timestamps, and passenger count. It contains real trip data that was sampled and cleaned, and based on individual trip attributes should predict the duration of each trip in the test set</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 1048576</li>
+            <li><strong>Rows (Test):</strong> 625135</li>
+            <li><strong>Columns (Train):</strong> 11</li>
+            <li><strong>Columns (Test):</strong> #11</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>id</code>: a unique identifier for each trip</li>
+                    <li><code>vendor_id</code>: a code indicating the provider associated with the trip record</li>
+                    <li><code>pickup_datetime</code>: date and time when the meter was engaged</li>
+                    <li><code>dropoff_datetime</code>: date and time when the meter was disengaged</li>
+                    <li><code>passenger_count</code>: the number of passengers in the vehicle (driver entered value)</li>
+                    <li><code>pickup_longitude</code>: the longitude where the meter was engaged</li>
+                    <li><code>pickup_latitude</code>: the latitude where the meter was engaged</li>
+                    <li><code>dropoff_longitude</code>: the longitude where the meter was disengaged</li>
+                    <li><code>dropoff_latitude</code>: the latitude where the meter was disengaged</li>
+                    <li><code>store_and_fwd_flag</code>: This flag indicates whether the trip record was held in vehicle memory before sending to the vendor because the vehicle did not have a connection to the server - Y=store and forward; N=not a store and forward trip</li>
+                    <li><code>trip_duration</code>: duration of the trip in seconds (target variable)</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/nyc-taxi-trip-duration/data">Kaggle NYC Taxi Trip Duration</a></p>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EYbbFMpdU-ZKuHeRnJJdx7kBD1dfh0xTRFmfMlElcHl4mw?e=eEPFyB&download=1" class="download-link">Download Test Data</a>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/ETTZhs3B115NlAX5it-OZIEB3eWPyo9zh05DhXB_D40cWw?e=4pOm7C&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to build a regression model to predict the duration of taxi trips in New York City.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Convert the pickup and dropoff datetime columns to appropriate datetime format.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Crucial):</strong>
+                <ul>
+                    <li>Calculate distance between pickup and dropoff locations.</li>
+                    <li>Create features representing time-based components (e.g., hour, day of week, month).</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets.</li>
+                    <li>Choose a suitable regression algorithm (e.g., Linear Regression, Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use metrics such as RMSE and MAE.  Use transformation on the target column.</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                    <li>Format the submission file according to the competition guidelines.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
