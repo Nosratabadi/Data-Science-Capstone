@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allstate Purchase Prediction Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position:fixed;
+            bottom:0px;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Allstate Purchase Prediction Challenge</h1>
+    </header>
+
+    <section>
+        <h2>1. Problem Statement</h2>
+        <p>Predicting insurance policy purchases based on customer shopping history can help optimize the quoting process, reduce costs, and improve customer satisfaction. By identifying the likelihood of a customer purchasing specific coverage options, Allstate can tailor the quoting experience to better meet their needs and increase the chances of a successful sale.</p>
+        <p><strong>Goal:</strong> The goal of this project is to build a model that can predict the purchased coverage options using a customer's shopping history.</p>
+    </section>
+
+    <section>
+        <h2>2. Data Description</h2>
+        <p>The dataset contains transaction history for customers who ended up purchasing a policy. It includes customer information, quoted policy information, and costs. The training set contains the entire quote history for each customer, with the last row containing the purchased coverage options. The test set contains a partial history of the quotes, and the task is to predict the purchased coverage options.</p>
+        <ul>
+            <li><strong>Rows (Train):</strong> 198857</li>
+            <li><strong>Rows (Test):</strong> 665250</li>
+            <li><strong>Columns:</strong> 25</li>
+            <li><strong>Variables:</strong>
+                <ul>
+                    <li><code>customer_ID</code>: A unique identifier for the customer</li>
+                    <li><code>shopping_pt</code>: Unique identifier for the shopping point of a given customer</li>
+                    <li><code>record_type</code>: 0=shopping point, 1=purchase point</li>
+                    <li><code>day</code>: Day of the week (0-6, 0=Monday)</li>
+                    <li><code>time</code>: Time of day (HH:MM)</li>
+                    <li><code>state</code>: State where shopping point occurred</li>
+                    <li><code>location</code>: Location ID where shopping point occurred</li>
+                    <li><code>group_size</code>: How many people will be covered under the policy (1, 2, 3 or 4)</li>
+                    <li><code>homeowner</code>: Whether the customer owns a home or not (0=no, 1=yes)</li>
+                    <li><code>car_age</code>: Age of the customer's car</li>
+                    <li><code>car_value</code>: How valuable was the customer's car when new</li>
+                    <li><code>risk_factor</code>: An ordinal assessment of how risky the customer is (1, 2, 3, 4)</li>
+                    <li><code>age_oldest</code>: Age of the oldest person in customer's group</li>
+                    <li><code>age_youngest</code>: Age of the youngest person in customer's group</li>
+                    <li><code>married_couple</code>: Does the customer group contain a married couple (0=no, 1=yes)</li>
+                    <li><code>C_previous</code>: What the customer formerly had or currently has for product option C (0=nothing, 1, 2, 3,4)</li>
+                    <li><code>duration_previous</code>: How long (in years) the customer was covered by their previous issuer</li>
+                    <li><code>A,B,C,D,E,F,G</code>: the coverage options</li>
+                    <li><code>cost</code>: Cost of the quoted coverage options</li>
+                </ul>
+            </li>
+        </ul>
+        <p><strong>Data Source:</strong> <a href="https://www.kaggle.com/competitions/allstate-purchase-prediction-challenge/data">Kaggle Allstate Purchase Prediction Challenge</a></p>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/ESOBaLhRuQ9luxXJaCPuw9YBL-D98wODd2F1apr38U_yvA?e=VfmByv&download=1" class="download-link">Download Test Data</a>
+        <a href="https://texastechuniversity-my.sharepoint.com/:x:/g/personal/snosrata_ttu_edu/EWIV-Jp9uONIhJp5UR8njYQBc56020EyrbSLwIlESpdcwg?e=mdjNwz&download=1" class="download-link">Download Train Data</a>
+    </section>
+
+    <section>
+        <h2>3. Your Task</h2>
+        <p>Your task is to predict the seven coverage options (A, B, C, D, E, F, G) that each customer will end up purchasing.</p>
+        <ol>
+            <li><strong>Data Exploration and Preprocessing:</strong>
+                <ul>
+                    <li>Load the dataset using Pandas.</li>
+                    <li>Explore the data to understand the distribution of features.</li>
+                    <li>Handle missing values, if any.</li>
+                    <li>Convert categorical variables to numerical format.</li>
+                </ul>
+            </li>
+            <li><strong>Feature Engineering (Crucial):</strong>
+                <ul>
+                    <li>Aggregate features from the shopping history.</li>
+                    <li>Create lag features to capture the customer's decision-making process.</li>
+                </ul>
+            </li>
+            <li><strong>Model Building:</strong>
+                <ul>
+                    <li>Split the data into training and validation sets. Consider using group-based splitting.</li>
+                    <li>Choose a suitable multi-label classification algorithm (e.g., Random Forest, Gradient Boosting).</li>
+                    <li>Train the model on the training data.</li>
+                </ul>
+            </li>
+            <li><strong>Model Evaluation:</strong>
+                <ul>
+                    <li>Evaluate the model's performance on the validation data.</li>
+                    <li>Use appropriate metrics for multi-label classification.</li>
+                </ul>
+            </li>
+            <li><strong>Prediction and Submission:</strong>
+                <ul>
+                    <li>Make predictions on the test data.</li>
+                    <li>Format the submission file according to the competition guidelines.</li>
+                </ul>
+            </li>
+        </ol>
+        <p><strong>Python Libraries:</strong> Pandas, NumPy, scikit-learn, Matplotlib/Seaborn.</p>
+    </section>
+    <footer>
+        <p>© 2024 Data Science Projects</p>
+    </footer>
+</body>
+</html>
