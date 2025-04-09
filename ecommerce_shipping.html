@@ -67,8 +67,8 @@
 
     <section>
         <h2>1. Problem Statement</h2>
-        <p>You're a key member of the logistics team for a rapidly expanding e-commerce company. As the business scales, ensuring efficient shipping and timely delivery becomes increasingly crucial for maintaining customer satisfaction and a strong brand reputation. However, the company faces mounting challenges: rising shipping costs are eroding profit margins, and delivery delays are triggering customer complaints and negative reviews. The current system relies on outdated methods and lacks the predictive capabilities needed to proactively manage shipping operations. You have been tasked with revolutionizing the company's logistics strategy.</p>
-        <p>Your challenge is to leverage a vast dataset of shipping information – order details, customer locations, product characteristics, shipping carrier performance, and delivery times – to identify bottlenecks and inefficiencies in the shipping process. The primary objective is to develop a predictive model that can accurately forecast delivery times and flag shipments that are likely to be delayed. With this foresight, the company can proactively reroute shipments, negotiate better rates with carriers, and communicate potential delays to customers, mitigating the negative impact on satisfaction and loyalty. Ultimately, your work will optimize shipping operations, reduce costs, improve delivery reliability, and enhance the overall customer experience, giving the e-commerce business a significant competitive advantage.</p>
+        <p>Imagine you're a data analyst at a major e-commerce company focused on optimizing its delivery operations. Customers are increasingly demanding faster and more reliable shipping, and on-time delivery is a critical factor in maintaining customer satisfaction and loyalty. However, the company is facing challenges in consistently meeting its delivery deadlines due to various factors, such as warehouse inefficiencies, transportation delays, and unexpected disruptions. They are looking to explore these factors to see which combination makes a delivery more likely to be done on time.</p>
+        <p>Your task is to analyze a dataset containing delivery information for thousands of orders, including warehouse locations, shipment modes, customer service interactions, product details, and delivery performance metrics. By building a predictive model that identifies the factors that most strongly influence on-time delivery, you can provide actionable insights to the logistics team for improving their processes, optimizing resource allocation, and minimizing delivery delays. A successful model will contribute to higher customer satisfaction, reduced shipping costs, and a stronger competitive position for the e-commerce business.</p>
         <p><strong>Goal:</strong> The objective of this project is to analyze e-commerce shipping data and build a model that can predict delivery times and identify factors that contribute to shipping delays. By understanding these factors, the e-commerce company can optimize its logistics operations, reduce shipping costs, and improve customer satisfaction.</p>
     </section>
 
@@ -80,24 +80,18 @@
             <li><strong>Columns:</strong> 12</li>
             <li><strong>Variables:</strong> (This will vary based on the specific dataset – adjust as needed. This example uses common variables.)
                 <ul>
-                    <li><code>Order ID</code>: Unique identifier for each order.</li>
-                    <li><code>Customer ID</code>: Unique identifier for each customer.</li>
-                    <li><code>Product ID</code>: Unique identifier for each product.</li>
-                    <li><code>Order Date</code>: Date when the order was placed.</li>
-                    <li><code>Shipping Date</code>: Date when the order was shipped.</li>
-                    <li><code>Delivery Date</code>: Date when the order was delivered.</li>
-                    <li><code>Shipping Carrier</code>: The carrier used for shipping (e.g., FedEx, UPS, DHL).</li>
-                    <li><code>Shipping Cost</code>: The cost of shipping the order.</li>
-                    <li><code>Product Category</code>: The category of the product (e.g., Electronics, Clothing).</li>
-                    <li><code>Product Subcategory</code>: The subcategory of the product (e.g., Smartphones, T-shirts).</li>
-                    <li><code>Order Quantity</code>: The quantity of products ordered.</li>
-                    <li><code>Order Value</code>: The total value of the order.</li>
-                    <li><code>Customer City</code>: City of the customer.</li>
-                    <li><code>Customer State</code>: State of the customer.</li>
-                    <li><code>Customer Zipcode</code>: Zipcode of the customer.</li>
-                    <li><code>Estimated Delivery Time</code>: The estimated delivery time in days.</li>
-                    <li><code>Actual Delivery Time</code>: The actual delivery time in days. (Target Variable)</li>
-                    <li><code>Late Delivery Risk</code>:  A binary variable (0/1) indicating if the delivery was late.</li>
+                    <li><code>ID</code>: Unique identifier for each shipment.</li>
+                    <li><code>Warehouse_block</code>: Code identifying the warehouse block (e.g., A, B, C, D).</li>
+                    <li><code>Mode_of_Shipment</code>: Mode of shipment (e.g., Flight, Road, Ship).</li>
+                    <li><code>Customer_care_calls</code>: Number of customer care calls made for the shipment.</li>
+                    <li><code>Customer_rating</code>: Customer rating (e.g., 1 to 5).</li>
+                    <li><code>Cost_of_the_Product</code>: Cost of the product.</li>
+                    <li><code>Prior_purchases</code>: Number of prior purchases made by the customer.</li>
+                    <li><code>Product_importance</code>: Importance level of the product (e.g., low, medium, high).</li>
+                    <li><code>Gender</code>: Gender of the customer (e.g., M, F).</li>
+                    <li><code>Discount_offered</code>: Discount offered on the product.</li>
+                    <li><code>Weight_in_gms</code>: Weight of the product in grams.</li>
+                    <li><code>Reached.on.Time_Y.N</code>: Whether the shipment reached on time (1: Yes, 0: No) - This is your target variable.</li>
                 </ul>
             </li>
         </ul>
